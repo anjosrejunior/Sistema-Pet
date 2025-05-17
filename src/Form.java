@@ -4,57 +4,78 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 public class Form {
-    static String answer;
     static Scanner input = new Scanner(System.in);
 
-    public static void FormAnswer(){
-        String[] answers = new String[9];
-        File form = new File("C:\\Users\\anjos\\Estudos-DEV\\Logica-de-Programacao-Java\\Escrevendo o README\\Sistema de Cadastro para PETS\\assets\\formulario.txt");
+    static private String nomeESobrenome;
+    static Pet.TipoPet tipoPet;
+    static private Pet.SexoPet sexo;
+    static private String numeroDaCasa;
+    static private String cidade;
+    static private String rua;
+    static private int idade;
+    static private double peso;
+    static private String raca;
+
+    static String line;
+
+    public static void formAnswer(){
+        File form = new File("C:\\Users\\Nato\\Estudos-DEV\\Sistema-Pet\\assets\\formulario.txt");
+        byte tick = 0;
 
         try (BufferedReader bf = new BufferedReader(new FileReader(form))) {
-            String line;
-            byte tick = 0;
-
             while ((line = bf.readLine()) != null) {
-                System.out.print(line + " ");
-                answer = input.nextLine();
-                answers[tick] = answer;
-
-                if (answers[0] == null || answers[0].isEmpty()) {
-                    throw new FormNameException("É obrigatório escrever um nome válido");
-                } else if (FormNameException.regexNameError(answers[0])) {
-                    throw new FormNameException("Caracter especial encontrado, escreva um nome válido.");
+                if (line.equals("1 - Qual o nome e sobrenome do pet?")) {
+                    System.out.print(line);
+                    nomeESobrenome = input.nextLine();
                 }
-                if (AgeException.regexAgeError(answers[6])) {
-                    throw new AgeException("Você escreveu a Idade errado escreva novamente");
+                if (line.equals("2 - Qual o tipo do pet (Cachorro/Gato)?")) {
+                    System.out.print(line);
+                    String tipo = input.nextLine().toUpperCase();
+                    tipoPet = Pet.TipoPet.valueOf(tipo); // Assume que o enum TipoPet tem CACHORRO e GATO
                 }
-                if (answer.equalsIgnoreCase("")) {
-                    answers[tick] = "NÃO INFORMADO";
+                if (line.equals("3 - Qual o sexo do animal (Macho ou Fêmea)?")) {
+                    System.out.print(line);
+                    String sexoStr = input.nextLine().toUpperCase();
+                    sexo = Pet.SexoPet.valueOf(sexoStr); // Assume que o enum SexoPet tem MACHO e FEMEA
                 }
-                if (tick == 8) {
-                    break;
+                if (line.equals("4 - Onde ele foi econtrado? Numero da Casa:")) {
+                    System.out.print(line);
+                    numeroDaCasa = input.nextLine();
+                }
+                if (line.equals("5 - Onde ele foi econtrado? Cidade:")) {
+                    System.out.print(line);
+                    cidade = input.nextLine();
+                }
+                if (line.equals("6 - Onde ele foi econtrado? Rua:")) {
+                    System.out.print(line);
+                    rua = input.nextLine();
+                }
+                if (line.equals("7 - Qual a idade aproximada do pet?")) {
+                    System.out.print(line);
+                    idade = Integer.parseInt(input.nextLine());
+                }
+                if (line.equals("8 - Qual o peso aproximado do pet?")) {
+                    System.out.print(line);
+                    peso = Double.parseDouble(input.nextLine());
+                }
+                if (line.equals("9 - Qual a raça do pet?")) {
+                    System.out.print(line);
+                    raca = input.nextLine();
                 }
                 tick++;
             }
 
             Pet pet = new Pet(
-                    answers[0],// Nome
-                    Pet.TipoPet.chooseAnimal(answers[1]), // Tipo do Pet
-                    Pet.SexoPet.chooseSexAnimal(answers[2]), // Sexo do Pet
-                    answers[3],
-                    answers[4],
-                    answers[5],
-                    Integer.parseInt(answers[6]), // Idade
-                    Double.parseDouble(answers[7]), // Peso
-                    answers[8]
+                    nomeESobrenome,
+                    tipoPet,
+                    sexo,
+                    numeroDaCasa,
+                    cidade,
+                    rua,
+                    idade,
+                    peso,
+                    raca
             );
-
-            Pet.imprimirRepostaForm(pet, Pet.TipoPet.chooseAnimal(answers[1]), Pet.SexoPet.chooseSexAnimal(answers[2]));
-        } catch (FormNameException e) {
-            System.out.println("\nErro: " + e.getMessage() + "\n"); // Captura a sua exceção personalizada
-            Form.FormAnswer();
-        } catch (AgeException e) {
-            System.out.println("\nErro: " + e.getMessage() + "\n"); // Captura a sua exceção personalizada
         } catch (Exception e) {
             System.out.println("\nErro: " + e.getMessage() + "\n"); // Captura a sua exceção personalizada
             e.printStackTrace();

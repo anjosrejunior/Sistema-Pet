@@ -23,8 +23,8 @@ public class Pet {
 
     public enum TipoPet{
         NaoInformado("NÃO INFORMADO"),
-        Cachorro("Cachorro"),
-        Gato("Gato");
+        CACHORRO("Cachorro"),
+        GATO("Gato");
 
         private String tipo;
 
@@ -36,19 +36,19 @@ public class Pet {
             return tipo;
         }
 
-        public static TipoPet chooseAnimal(String answer){
-            if (answer == null) {
-                return TipoPet.NaoInformado; // Tratamento para entrada nula
-            }
-            if (answer.equalsIgnoreCase("Cachorro")) {
-                return TipoPet.Cachorro;
-            } else if (answer.equalsIgnoreCase("Gato")) {
-                return TipoPet.Gato;
-            }
-            return TipoPet.NaoInformado; // Valor padrão para entradas inválidas
-        }
+//        public static TipoPet chooseAnimal(String answer){
+//            if (answer == null) {
+//                return TipoPet.NaoInformado; // Tratamento para entrada nula
+//            }
+//            if (answer.equalsIgnoreCase("Cachorro")) {
+//                return TipoPet.CACHORRO;
+//            } else if (answer.equalsIgnoreCase("Gato")) {
+//                return TipoPet.GATO;
+//            }
+//            return TipoPet.NaoInformado; // Valor padrão para entradas inválidas
+//        }
     }
-
+//
     public enum SexoPet{
         NAOINFORMADO("Não informado"),
         MACHO("Macho"),
@@ -64,14 +64,14 @@ public class Pet {
             return sex;
         }
 
-        public static SexoPet chooseSexAnimal(String sexo){
-            if (sexo.equalsIgnoreCase("macho")) {
-                return MACHO;
-            } else if (sexo.equalsIgnoreCase("femea")) {
-                return FEMEA;
-            }
-            return NAOINFORMADO;
-        }
+//        public static SexoPet chooseSexAnimal(String sexo){
+//            if (sexo.equalsIgnoreCase("macho")) {
+//                return MACHO;
+//            } else if (sexo.equalsIgnoreCase("femea")) {
+//                return FEMEA;
+//            }
+//            return NAOINFORMADO;
+//        }
     }
 
     public String getNomeESobrenome() {
@@ -111,7 +111,7 @@ public class Pet {
     }
 
     public static void cadastroPet(){
-        Form.FormAnswer();
+        Form.formAnswer();
     }
 
     public static void imprimirRepostaForm(Pet pet, TipoPet petType, SexoPet sexPet){
