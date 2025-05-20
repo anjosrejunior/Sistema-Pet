@@ -1,3 +1,5 @@
+package Exceptions;
+
 import java.util.regex.*;
 
 public class FormNameException extends Exception {
@@ -7,7 +9,7 @@ public class FormNameException extends Exception {
     }
     public static boolean regexNameError(String name){
         boolean isSpecialCaracter;
-        Pattern pattern = Pattern.compile("[^A-Za-z0-9 ]");
+        Pattern pattern = Pattern.compile("[^A-Za-z ]");
         Matcher matcher = pattern.matcher(name);
 
         if (matcher.find()) {

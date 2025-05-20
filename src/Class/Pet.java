@@ -1,3 +1,5 @@
+package Class;
+
 public class Pet {
     private String nomeESobrenome;
     private TipoPet tipoPet;
@@ -5,11 +7,11 @@ public class Pet {
     private String numeroDaCasa;
     private String cidade;
     private String rua;
-    private int idade;
+    private double idade;
     private double peso;
     private String raca;
 
-    public Pet(String nomeESobrenome, TipoPet tipoPet, SexoPet sexo, String numeroDaCasa, String cidade, String rua, int idade, double peso, String raca) {
+    public Pet(String nomeESobrenome, TipoPet tipoPet, SexoPet sexo, String numeroDaCasa, String cidade, String rua, double idade, double peso, String raca) {
         this.nomeESobrenome = nomeESobrenome;
         this.tipoPet = tipoPet;
         this.sexo = sexo;
@@ -35,20 +37,8 @@ public class Pet {
         public String getTipo(TipoPet tipoPet) {
             return tipo;
         }
-
-//        public static TipoPet chooseAnimal(String answer){
-//            if (answer == null) {
-//                return TipoPet.NaoInformado; // Tratamento para entrada nula
-//            }
-//            if (answer.equalsIgnoreCase("Cachorro")) {
-//                return TipoPet.CACHORRO;
-//            } else if (answer.equalsIgnoreCase("Gato")) {
-//                return TipoPet.GATO;
-//            }
-//            return TipoPet.NaoInformado; // Valor padrão para entradas inválidas
-//        }
     }
-//
+
     public enum SexoPet{
         NAOINFORMADO("Não informado"),
         MACHO("Macho"),
@@ -63,15 +53,6 @@ public class Pet {
         public String getSex(SexoPet sexPet){
             return sex;
         }
-
-//        public static SexoPet chooseSexAnimal(String sexo){
-//            if (sexo.equalsIgnoreCase("macho")) {
-//                return MACHO;
-//            } else if (sexo.equalsIgnoreCase("femea")) {
-//                return FEMEA;
-//            }
-//            return NAOINFORMADO;
-//        }
     }
 
     public String getNomeESobrenome() {
@@ -98,7 +79,7 @@ public class Pet {
         return rua;
     }
 
-    public int getIdade() {
+    public double getIdade() {
         return idade;
     }
 

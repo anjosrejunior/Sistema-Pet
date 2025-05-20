@@ -19,10 +19,6 @@ O desafio original foi proposto por Dev Magro e pode ser encontrado [aqui](https
 - Intellij IDE;
 - E Muita raça;
 
-## Como Usar
-
-[Descreva como utilizar a aplicação. Ex.: "Acesse a interface em http://localhost:3000 e use o formulário para cadastrar pets."]
-
 ## Agradecimentos
 
 Agradeço ao Dev Magro por propor o desafio que inspirou este projeto. Para quem quiser aqu esta o youtube do dev magro : https://www.youtube.com/@devmagro

@@ -1,3 +1,6 @@
+package Class;
+
+import Exceptions.MenuException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
