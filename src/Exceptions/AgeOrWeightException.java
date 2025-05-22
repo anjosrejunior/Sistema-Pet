@@ -2,14 +2,14 @@ package Exceptions;
 
 import java.util.regex.*;
 
-public class AgeException extends RuntimeException {
-    public AgeException(String message) {
+public class AgeOrWeightException extends RuntimeException {
+    public AgeOrWeightException(String message) {
         super(message);
     }
 
-    public static boolean regexAgeError(String age){
+    public static boolean regexOnlyNumberError(String age){
         boolean isCorretAge;
-        Pattern pattern = Pattern.compile("[^0-9 ,]");
+        Pattern pattern = Pattern.compile("[^0-9 ,.]");
         Matcher matcher = pattern.matcher(age);
 
         if (matcher.find()) {

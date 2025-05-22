@@ -1,17 +1,17 @@
 package Class;
 
 public class Pet {
-    private String nomeESobrenome;
+    private final String nomeESobrenome;
     private TipoPet tipoPet;
     private SexoPet sexo;
-    private String numeroDaCasa;
-    private String cidade;
-    private String rua;
-    private double idade;
-    private double peso;
-    private String raca;
+    private final String numeroDaCasa;
+    private final String cidade;
+    private final String rua;
+    private final String idade;
+    private final String peso;
+    private final String raca;
 
-    public Pet(String nomeESobrenome, TipoPet tipoPet, SexoPet sexo, String numeroDaCasa, String cidade, String rua, double idade, double peso, String raca) {
+    public Pet(String nomeESobrenome, TipoPet tipoPet, SexoPet sexo, String numeroDaCasa, String cidade, String rua, String idade, String peso, String raca) {
         this.nomeESobrenome = nomeESobrenome;
         this.tipoPet = tipoPet;
         this.sexo = sexo;
@@ -79,11 +79,11 @@ public class Pet {
         return rua;
     }
 
-    public double getIdade() {
+    public String getIdade() {
         return idade;
     }
 
-    public double getPeso() {
+    public String getPeso() {
         return peso;
     }
 
