@@ -21,4 +21,4 @@ O desafio original foi proposto por Dev Magro e pode ser encontrado [aqui](https
 
 ## Agradecimentos
 
-Agradeço ao Dev Magro por propor o desafio que inspirou este projeto. Para quem quiser aqu esta o youtube do dev magro : https://www.youtube.com/@devmagro
+Agradeço ao Dev Magro por propor o desafio que inspirou este projeto. Para quem quiser aqui esta o youtube do dev magro : https://www.youtube.com/@devmagro

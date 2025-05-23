@@ -2,8 +2,8 @@ package Class;
 
 public class Pet {
     private final String nomeESobrenome;
-    private TipoPet tipoPet;
-    private SexoPet sexo;
+    private Pet.PetType petType;
+    private Pet.PetSex sexo;
     private final String numeroDaCasa;
     private final String cidade;
     private final String rua;
@@ -11,9 +11,9 @@ public class Pet {
     private final String peso;
     private final String raca;
 
-    public Pet(String nomeESobrenome, TipoPet tipoPet, SexoPet sexo, String numeroDaCasa, String cidade, String rua, String idade, String peso, String raca) {
+    public Pet(String nomeESobrenome, Pet.PetType petType, Pet.PetSex sexo, String numeroDaCasa, String cidade, String rua, String idade, String peso, String raca) {
         this.nomeESobrenome = nomeESobrenome;
-        this.tipoPet = tipoPet;
+        this.petType = petType;
         this.sexo = sexo;
         this.numeroDaCasa = numeroDaCasa;
         this.cidade = cidade;
@@ -23,34 +23,34 @@ public class Pet {
         this.raca = raca;
     }
 
-    public enum TipoPet{
+    public enum PetType {
         NaoInformado("NÃO INFORMADO"),
         CACHORRO("Cachorro"),
         GATO("Gato");
 
         private String tipo;
 
-        TipoPet(String tipo) {
+        PetType(String tipo) {
             this.tipo = tipo;
         }
 
-        public String getTipo(TipoPet tipoPet) {
+        public String getTipo(Pet.PetType petType) {
             return tipo;
         }
     }
 
-    public enum SexoPet{
+    public enum PetSex {
         NAOINFORMADO("Não informado"),
         MACHO("Macho"),
         FEMEA("Fêmea");
 
         private String sex;
 
-        SexoPet(String sex) {
+        PetSex(String sex) {
             this.sex = sex;
         }
 
-        public String getSex(SexoPet sexPet){
+        public String getSex(Pet.PetSex sexPet){
             return sex;
         }
     }
@@ -59,11 +59,11 @@ public class Pet {
         return nomeESobrenome;
     }
 
-    public TipoPet getTipoPet() {
-        return tipoPet;
+    public Pet.PetType getTipoPet() {
+        return petType;
     }
 
-    public SexoPet getSexo() {
+    public Pet.PetSex getSexo() {
         return sexo;
     }
 
@@ -91,11 +91,7 @@ public class Pet {
         return raca;
     }
 
-    public static void cadastroPet(){
-        Form.formAnswer();
-    }
-
-    public static void imprimirRepostaForm(Pet pet, TipoPet petType, SexoPet sexPet){
+    public static void imprimirRepostaForm(Pet pet, Pet.PetType petType, Pet.PetSex sexPet){
         System.out.println("\n--- Informações do Pet ---");
         System.out.println("Nome e Sobrenome do Pet: " + pet.getNomeESobrenome());
         System.out.println("Tipo do Pet: " + petType.getTipo(pet.getTipoPet()));

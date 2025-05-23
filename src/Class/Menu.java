@@ -38,7 +38,7 @@ public class Menu{
         } while (!isCorrect);
 
         switch (menuAnswer) {
-            case 1 -> Pet.cadastroPet();
+            case 1 -> DatabaseActions.createPetFile();
         }
         input.close();
     }

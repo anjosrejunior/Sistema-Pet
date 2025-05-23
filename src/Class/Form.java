@@ -11,8 +11,8 @@ public class Form {
     static Scanner input = new Scanner(System.in);
 
     static private String nomeESobrenome;
-    static private Pet.TipoPet tipoPet;
-    static private Pet.SexoPet sexo;
+    static private Pet.PetType petType;
+    static private Pet.PetSex petSex;
     static private String numeroDaCasa;
     static private String cidade;
     static private String rua;
@@ -42,7 +42,7 @@ public class Form {
                             System.out.print(line + " ");
                             String tipo = input.nextLine().toUpperCase();
                             try {
-                                tipoPet = Pet.TipoPet.valueOf(tipo);
+                                petType = Pet.PetType.valueOf(tipo);
                                 validInput = true;
                             } catch (InvalidEnumException e) {
                                 System.out.println("\nErro: " + e.getMessage() + "\n");
@@ -51,7 +51,7 @@ public class Form {
                             System.out.print(line + " ");
                             String sexoStr = input.nextLine().toUpperCase();
                             try {
-                                sexo = Pet.SexoPet.valueOf(sexoStr);
+                                petSex = Pet.PetSex.valueOf(sexoStr);
                                 validInput = true;
                             } catch (InvalidEnumException e) {
                                 System.out.println("\nErro: " + e.getMessage() + "\n");
@@ -134,8 +134,8 @@ public class Form {
 
             Pet pet = new Pet(
                     nomeESobrenome,
-                    tipoPet,
-                    sexo,
+                    petType,
+                    petSex,
                     numeroDaCasa,
                     cidade,
                     rua,
@@ -143,9 +143,9 @@ public class Form {
                     peso,
                     raca
             );
-            System.out.println("Pet cadastrado com sucesso: " + pet.toString());
-
-            Pet.imprimirRepostaForm(pet,tipoPet,sexo);
+            Pet.imprimirRepostaForm(pet, petType, petSex);
+            System.out.println();
+            DatabaseActions.savePetFile(pet);
         } catch (Exception e) {
             System.out.println("\nErro ao ler o arquivo: " + e.getMessage() + "\n");
             e.printStackTrace();
