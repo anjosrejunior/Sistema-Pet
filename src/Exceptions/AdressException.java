@@ -21,7 +21,7 @@ public class AdressException extends RuntimeException {
 
     public static boolean regexCityAndStreetError(String cityOrStreet){
         boolean isInCorretCityOrStreet;
-        Pattern pattern = Pattern.compile("[^A-Za-z ]");
+        Pattern pattern = Pattern.compile("[^A-Za-záàãâéêíóôõúçÁÀÃÂÉÊÍÓÔÕÚÇ ]");
         Matcher matcher = pattern.matcher(cityOrStreet);
 
         if (matcher.find()) {

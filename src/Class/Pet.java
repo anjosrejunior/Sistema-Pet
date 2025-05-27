@@ -3,7 +3,7 @@ package Class;
 public class Pet {
     private final String nomeESobrenome;
     private Pet.PetType petType;
-    private Pet.PetSex sexo;
+    private Pet.PetSex sex;
     private final String numeroDaCasa;
     private final String cidade;
     private final String rua;
@@ -11,10 +11,10 @@ public class Pet {
     private final String peso;
     private final String raca;
 
-    public Pet(String nomeESobrenome, Pet.PetType petType, Pet.PetSex sexo, String numeroDaCasa, String cidade, String rua, String idade, String peso, String raca) {
+    public Pet(String nomeESobrenome, Pet.PetType petType, Pet.PetSex sex, String numeroDaCasa, String cidade, String rua, String idade, String peso, String raca) {
         this.nomeESobrenome = nomeESobrenome;
         this.petType = petType;
-        this.sexo = sexo;
+        this.sex = sex;
         this.numeroDaCasa = numeroDaCasa;
         this.cidade = cidade;
         this.rua = rua;
@@ -28,14 +28,14 @@ public class Pet {
         CACHORRO("Cachorro"),
         GATO("Gato");
 
-        private String tipo;
+        private String Type;
 
-        PetType(String tipo) {
-            this.tipo = tipo;
+        PetType(String Type) {
+            this.Type = Type;
         }
 
-        public String getTipo(Pet.PetType petType) {
-            return tipo;
+        public String getType() {
+            return Type;
         }
     }
 
@@ -50,7 +50,7 @@ public class Pet {
             this.sex = sex;
         }
 
-        public String getSex(Pet.PetSex sexPet){
+        public String getSexStr(){
             return sex;
         }
     }
@@ -63,8 +63,8 @@ public class Pet {
         return petType;
     }
 
-    public Pet.PetSex getSexo() {
-        return sexo;
+    public Pet.PetSex getSex() {
+        return sex;
     }
 
     public String getNumeroDaCasa() {
@@ -94,8 +94,8 @@ public class Pet {
     public static void imprimirRepostaForm(Pet pet, Pet.PetType petType, Pet.PetSex sexPet){
         System.out.println("\n--- Informações do Pet ---");
         System.out.println("Nome e Sobrenome do Pet: " + pet.getNomeESobrenome());
-        System.out.println("Tipo do Pet: " + petType.getTipo(pet.getTipoPet()));
-        System.out.println("Sexo animal: " + sexPet.getSex(pet.getSexo()));
+        System.out.println("Tipo do Pet: " + petType.getType());
+        System.out.println("Sexo animal: " + sexPet.getSexStr());
         System.out.println("Idade do Pet: " + pet.getIdade());
         System.out.println("Peso do Pet: " + pet.getPeso());
         System.out.println("Raça do Pet: " + pet.getRaca());

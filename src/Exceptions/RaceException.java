@@ -10,7 +10,7 @@ public class RaceException extends RuntimeException {
 
     public static boolean regexRaceError(String cityOrStreet){
         boolean isInCorretRace;
-        Pattern pattern = Pattern.compile("[^A-Za-z ]");
+        Pattern pattern = Pattern.compile("[^A-Za-záàãâéêíóôõúçÁÀÃÂÉÊÍÓÔÕÚÇ ]");
         Matcher matcher = pattern.matcher(cityOrStreet);
 
         if (matcher.find()) {
