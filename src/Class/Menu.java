@@ -39,7 +39,8 @@ public class Menu{
 
         switch (menuAnswer) {
             case 1 -> DatabaseActions.createPetFile();
-            case 4 -> DatabaseActions.readFiles();
+            case 4 -> DatabaseActions.listAllPets();
+            case 5 -> DatabaseActions.sortSearch();
         }
         input.close();
     }
